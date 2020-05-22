@@ -14,9 +14,9 @@ app.use(cors())
 
 
 // create and end-point 
-app.get("/status", (req , res) =>{
+app.post("/register", (req , res) =>{
    res.send({
-       message: "Hello world !"
+       message: ` ${req.body.email} was registred successfully`
    })
 })
 

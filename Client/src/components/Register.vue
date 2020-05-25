@@ -1,28 +1,32 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
-            </v-toolbar>
-                <div clas="pl-4 pr-4 pt-2 pb-2">
-                  <input  type="email"
-                          value="email"
-                          placeholder="email"
-                          v-model="email"/>
-                  <br>
-                  <input  type="password"
-                          value="password"
-                          placeholder="password"
-                          v-model="password"/>
-                  <br>
-                  <div class="error" v-html="error"/>
-                  <br>
-                  <v-btn @click="register">Register </v-btn>
-                </div>
-      </div>
-    </v-flex>
-  </v-layout>
+  <v-form>
+      <v-container>
+        <v-row>
+
+               <v-col cols="12" sm="6" md="3">
+                  <v-text-field
+                    label="Email"
+                     outlined
+                     class="email"
+                     v-model="email"
+                  ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="4" md="3">
+                  <v-text-field
+                    label="Password"
+                    outlined
+                    v-model="password"
+                  ></v-text-field>
+                  </v-col>
+                  </v-row>
+                  <v-row>
+                    <div class="error" v-html="error"/>
+                  </v-row>
+                  <v-row>
+                    <v-btn @click="register">Register </v-btn>
+                  </v-row>
+      </v-container>
+  </v-form>
 </template>
 
 <script>
@@ -56,4 +60,5 @@ export default {
 .error{
   color:red
 }
+
 </style>

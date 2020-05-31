@@ -56,6 +56,8 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
+                <div class="red--text">{{error}} </div>
+                <v-spacer></v-spacer>
                 <v-btn color="primary" @click="login">Login</v-btn>
               </v-card-actions>
             </v-card>
@@ -87,9 +89,11 @@ export default {
           password: this.password
         })
         this.$store.dispatch('setToken', response.data.token)
-        this.$store.dispatch('setUser', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
+        this.$router.push('/home')
       } catch (error) {
         this.error = error.response.data.error
+        console.log(error)
       }
     }
   }

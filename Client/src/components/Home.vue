@@ -107,6 +107,8 @@
         class="fill-height"
         fluid
       >
+      <Songs>
+      </Songs>
       </v-container>
     </v-content>
   </v-app>
@@ -114,9 +116,11 @@
 
 <script>
 import AddPub from '@/components/AddNewPubButton'
+import Songs from '@/components/songs'
 export default {
   components: {
-    AddPub
+    AddPub,
+    Songs
   },
   props: {
     source: String
@@ -129,6 +133,11 @@ export default {
       { icon: 'mdi-message', text: 'Send feedback' },
       { icon: 'mdi-help-circle', text: 'Help' },
       { icon: 'mdi-account-arrow-left-outline', text: 'Logout' }
+    ],
+    songs: [
+      { title: 'pray', author: 'radi', description: 'radi ft dadlee' },
+      { title: 'everything changes', author: 'Soja', description: 'soja best song' },
+      { title: 'all eyes on me', author: 'tupac', description: 'tupac best song' }
     ]
   }),
   methods: {

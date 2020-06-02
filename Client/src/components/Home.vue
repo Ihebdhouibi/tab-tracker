@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire" v-if="$store.state.isUserLoggedIn">
+  <v-app id="inspire">
     <v-navigation-drawer
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
@@ -70,7 +70,7 @@
         style="width: 300px"
         class="ml-0 pl-4"
       >
-        <v-btn text to="Register">Tab Tracker</v-btn>
+        <v-btn text to="home">Tab Tracker</v-btn>
       </v-toolbar-title>
       <v-text-field
         flat
@@ -101,7 +101,7 @@
           ></v-img></v-avatar>
       </v-btn>
     </v-app-bar>
-    <AddPub />
+    <CreateSong />
     <v-content>
       <v-container
         class="fill-height"
@@ -115,11 +115,11 @@
 </template>
 
 <script>
-import AddPub from '@/components/AddNewPubButton'
+import CreateSong from '@/components/CreateSong'
 import Songs from '@/components/songs'
 export default {
   components: {
-    AddPub,
+    CreateSong,
     Songs
   },
   props: {

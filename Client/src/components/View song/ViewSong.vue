@@ -69,7 +69,6 @@ export default {
   },
   async mounted () {
     const songId = this.$store.state.route.params.songId
-    // eslint-disable-next-line no-unused-vars
     this.song = (await SongsService.showSong(songId)).data
   }
 }

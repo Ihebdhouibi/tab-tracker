@@ -10,6 +10,12 @@
        <v-card-actions>
          <v-row>
       <v-btn text class="pl-12">Add to favorite<v-icon>mdi-bookmark</v-icon></v-btn>
+      <v-btn text @click="navigateTo({
+        name: 'song-edit',
+        params: {
+          songId: song.id
+        }
+      })">Edit Song <v-icon>content-save-edit</v-icon></v-btn>
        </v-row>
     </v-card-actions>
      </v-flex>
@@ -19,7 +25,12 @@
 export default {
   props: [
     'song'
-  ]
+  ],
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    }
+  }
 }
 </script>
 <style scoped>

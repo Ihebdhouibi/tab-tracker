@@ -14,7 +14,7 @@
           <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
         </v-list-item-avatar>
 
-        <v-list-item-title>{{$store.state.user.name}}</v-list-item-title>
+        <v-list-item-title >John</v-list-item-title>
 
         <v-btn
           icon
@@ -79,24 +79,12 @@
         prepend-inner-icon="mdi-magnify"
         label="Search"
         class="hidden-sm-and-down"
+        v-model="search"
       ></v-text-field>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>mdi-bell</v-icon>
       </v-btn>
-      <!-- <v-btn
-        icon
-        large
-      >
-        <v-avatar
-          size="32px"
-          item
-        >
-          <v-img
-            src="https://cdn.vuetifyjs.com/images/logos/logo.svg"
-            alt="Vuetify"
-          ></v-img></v-avatar>
-      </v-btn> -->
     </v-app-bar>
     <CreateSong />
     <v-content>
@@ -120,6 +108,8 @@ export default {
     Songs
   },
   data: () => ({
+    // name: this.$store.state.user.name || 'John',
+    search: ' ',
     drawer: null,
     items: [
       { icon: 'mdi-heart-multiple', text: 'Favorite Songs' },
@@ -127,11 +117,6 @@ export default {
       { icon: 'mdi-message', text: 'Send feedback' },
       { icon: 'mdi-help-circle', text: 'Help' },
       { icon: 'mdi-account-arrow-left-outline', text: 'Logout' }
-    ],
-    songs: [
-      { title: 'pray', author: 'radi', description: 'radi ft dadlee' },
-      { title: 'everything changes', author: 'Soja', description: 'soja best song' },
-      { title: 'all eyes on me', author: 'tupac', description: 'tupac best song' }
     ]
   }),
   methods: {
@@ -144,5 +129,17 @@ export default {
       })
     }
   }
+  // watch: {
+  //   search (value) {
+  //     const route = {
+  //       name: 'songs'
+  //     }
+  //     if (this.search !== '') {
+  //       route.query = {
+  //         search: this.search
+  //       }
+  //     }
+  //     this.$router.push(route)
 }
+
 </script>

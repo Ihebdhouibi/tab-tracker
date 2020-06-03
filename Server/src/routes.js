@@ -22,5 +22,9 @@ module.exports = (app) => {
     // fetch a single song by id 
     app.get('/songs/:songId',
     SongController.showSong)
+
+    // edit a song 
+    app.put('/songs/:songId',
+    SongController.put)
  
 }

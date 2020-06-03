@@ -43,12 +43,23 @@ export default {
       songs: [ ]
     }
   },
+  props: [
+    'search'
+  ],
   methods: {
     like () {
       this.likeCounter++
     },
     navigateTo (route) {
       this.$router.push(route)
+    }
+  },
+  computed: {
+    filtredSong () {
+      console.log(this.search)
+      return this.Songs.filter((song) => {
+        return song.title.match(this.search)
+      })
     }
   },
   async mounted () {

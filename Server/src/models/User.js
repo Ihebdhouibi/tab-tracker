@@ -24,13 +24,14 @@ module.exports = (sequelize, DataTypes) => {
         password: {
             type: DataTypes.STRING,
             //allowNull: false
-    }
+        },
+        name: {
+            type: DataTypes.STRING
+        }
 },
       {
         hooks:{
             beforeCreate : hashPassword
-            // beforeUpdate : hashPassword,
-            // beforeSave : hashPassword
         }
       }
     

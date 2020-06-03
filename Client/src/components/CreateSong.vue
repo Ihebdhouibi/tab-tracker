@@ -55,13 +55,6 @@
               </v-row>
             </v-col>
             <v-col cols="6">
-              <!-- <v-text-field
-                prepend-icon="mdi-music-note-outline"
-                placeholder="genre"
-                required
-                :rules="[required]"
-                v-model="genre"
-              ></v-text-field> -->
                <v-select
                   :items="genreList"
                   label="Genre"

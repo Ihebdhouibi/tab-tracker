@@ -30,7 +30,7 @@ async register (req , res) {
 },
 async login(req , res){
     try{
-        const  {email , password} = req.body
+        const  {email , password , name} = req.body
         const  user = await User.findOne({
             where: {
                 email: email

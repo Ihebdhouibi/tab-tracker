@@ -1,6 +1,7 @@
 const {Song} = require('../models')
 
 module.exports = {
+    // fetch all songs api 
     async getSongs (req,res) {
         try {
             const song = await Song.findAll()
@@ -11,6 +12,18 @@ module.exports = {
             })
         }
     },
+    // fetch a single song api
+    async showSong (req,res) {
+        try {
+            const song = await Song.findByPk(req.params.songId)
+            res.send(song)
+        } catch (err) {
+            res.status(500).send({
+                error: 'An error occured trying to fetch the requested song'
+            })
+        }
+    },
+    // create a song api
     async createSong (req,res) {
         try {
             const song = await Song.create(req.body)

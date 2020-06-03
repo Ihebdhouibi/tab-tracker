@@ -4,7 +4,7 @@
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
       app
-      color="blue darken-3"
+      color="purple darken-1"
       :mini-variant.sync="drawer"
       permanent
       dark
@@ -14,7 +14,7 @@
           <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
         </v-list-item-avatar>
 
-        <v-list-item-title>John Leider</v-list-item-title>
+        <v-list-item-title>{{$store.state.user.name}}</v-list-item-title>
 
         <v-btn
           icon
@@ -62,7 +62,7 @@
     <v-app-bar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
       app
-      color="blue darken-3"
+      color="purple darken-1"
       dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -70,7 +70,7 @@
         style="width: 300px"
         class="ml-0 pl-4"
       >
-        <v-btn text to="home">Tab Tracker</v-btn>
+        <!-- <v-btn  depressed to="home" color="primary">Musika</v-btn> -->
       </v-toolbar-title>
       <v-text-field
         flat
@@ -82,12 +82,9 @@
       ></v-text-field>
       <v-spacer></v-spacer>
       <v-btn icon>
-        <v-icon>mdi-apps</v-icon>
-      </v-btn>
-      <v-btn icon>
         <v-icon>mdi-bell</v-icon>
       </v-btn>
-      <v-btn
+      <!-- <v-btn
         icon
         large
       >
@@ -99,7 +96,7 @@
             src="https://cdn.vuetifyjs.com/images/logos/logo.svg"
             alt="Vuetify"
           ></v-img></v-avatar>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
     <CreateSong />
     <v-content>
@@ -122,13 +119,10 @@ export default {
     CreateSong,
     Songs
   },
-  props: {
-    source: String
-  },
   data: () => ({
     drawer: null,
     items: [
-      { icon: 'mdi-history', text: 'Frequently searched' },
+      { icon: 'mdi-heart-multiple', text: 'Favorite Songs' },
       { icon: 'mdi-content-copy', text: 'Duplicates' },
       { icon: 'mdi-message', text: 'Send feedback' },
       { icon: 'mdi-help-circle', text: 'Help' },
@@ -146,7 +140,7 @@ export default {
       this.$store.dispatch('setUser', null)
       console.log('inside of logout function')
       this.$router.push({
-        name: 'Login'
+        name: 'signup'
       })
     }
   }

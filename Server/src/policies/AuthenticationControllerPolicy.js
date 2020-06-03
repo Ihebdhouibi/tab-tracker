@@ -6,7 +6,8 @@ module.exports = {
             email : Joi.string().email(),
             password : Joi.string().regex(
                 new RegExp('^[a-zA-Z0-9]{8,16}$') 
-            )
+            ),
+            name: Joi.string()
         }
         const {error , value } = Joi.validate(req.body , schema)
         
@@ -19,7 +20,7 @@ module.exports = {
                     break
                 case 'password':
                     res.status(400).send({
-                        error: `Wrong password : Must contains only lowercase, Uppercase characters and numerics <br> and a length of 8 to 16`
+                        error: `Wrong password : Must contains only lowercase, Uppercase characters and numerics and a length of 8 to 16`
                                              
                     })
                     break
